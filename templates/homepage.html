@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+    <article class="container">
+        {% for post in posts.items %}
+            <div class="card mb-2">
+                <div class="card-header d-flex justify-content-between p-1">
+                    <div class="">
+                        <img src="{{ url_for('static',filename='profile_pics/'+post.author.image_file)}}" alt="" class="rounded-circle mr-2 post-thumb">
+                        <strong>{{ post.author.username }}</strong>
+                    </div>
+                    <div class="align-self-center pr-2">
+                        <span class="">{{ post.date_posted.strftime("%Y-%m-%d") }}</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                        <h5 class="card-title"><a href="{{ url_for('posts.post',post_id=post.id) }}">{{ post.title }}</a></h5>
+                        <p class="card-text">{{post.content|safe}}</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Go somewhere</button>
+                </div>
+            </div>
+        {%endfor%}
+    </article>
+    <div class="d-flex justify-content-center">
+        {% for page_num in posts.iter_pages(left_edge=1,right_edge=1,left_current=1,right_current=2) %}
+            {% if page_num %}
+                {% if posts.page==page_num %}
+                    <a href={{ url_for('main.home',page=page_num) }} class="btn btn-primary mr-1">{{ page_num }}</a>
+                {% else %}
+                    <a href={{ url_for('main.home',page=page_num) }} class="btn btn-outline-primary mr-1">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+            ...
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock content %}
+
+
+
+{% block banner_side %}
+    <div class="carousel slide" data-ride='carousel' id='slider1'>
+        <ol class="carousel-indicators">
+            <li class="active" data-target='#slider1' data-slide-to='0'></li>
+            <li data-target='#slider1' data-slide-to='1'></li>
+            <li data-target='#slider1' data-slide-to='2'></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block img-fluid" src="https://source.unsplash.com/collection/1248080/900x400" alt="" id="car-img1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Slide One</h3>
+                    <p>Everything is working fine. Lets do it again.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block img-fluid" src="https://source.unsplash.com/collection/4961056/900x400" alt="" id="car-img2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Slide Two</h3>
+                    <p>Everything is working fine. Lets do it again.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block img-fluid" src="https://source.unsplash.com/collection/649278/900x400" alt="" id="car-img3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Slide Three</h3>
+                    <p>Everything is working fine. Lets do it again.</p>
+                </div>
+            </div>
+        </div>
+        <a href="#slider1" class="carousel-control-prev" data-slide='prev'><span class="carousel-control-prev-icon"></span></a>
+        <a href="#slider1" class="carousel-control-next" data-slide='next'><span class="carousel-control-next-icon"></span></a>
+    </div>
+{% endblock banner_side%}

@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col" style="max-width:450px;">
+            <div class="card" style='background-color:rgba(200,200,200,0.9)'>
+                <div class="card-body">
+                    <form class="" action="#" method="post">
+                        {{ forms.hidden_tag()}}
+                        <fieldset class="form-group">
+                            <legend class='card-header text-center' style='font-style:italic;'>Reset Password</legend>
+                                <div class="form-group">
+                                    {{ forms.email.label(class='form-control-label')}}
+                                    {% if forms.email.errors %}
+                                        {{ forms.email(class='form-control form-control-lg is-invalid') }}
+                                        <div class="invalid-feedback">
+                                            {% for error in forms.email.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ forms.email(class='form-control form-control-lg')}}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    {{ forms.submit(class='btn btn-outline-primary btn-block')}}
+                                </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

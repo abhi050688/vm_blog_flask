@@ -1,0 +1,50 @@
+body {
+    background-color: #fff;
+}
+
+#carou-box {
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+#top-part {
+    background: url('/static/home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    background-attachment: fixed;
+    background-position: absolute;
+}
+
+.dark-overlay {
+    position: absolute;
+    width: 100%;
+    height: 800px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.second-banner {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#slider1, #car-img1, #car-img2, #car-img3 {
+    background-size: cover;
+    width: 100%;
+
+}
+
+.text-contain {
+    font-size: 400%;
+}
+
+.crd-mute {
+    background-color: rgba(255,255,255,0.1)
+}
+.white-strip {
+    background-color: rgba(255,255,255,0.25)
+}
+
+.signFrm {
+    background-color: rgba(255,250,200,1)
+}
