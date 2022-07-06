@@ -41,7 +41,7 @@ gensim==3.4.0
 grpcio==1.16.1
 h5py==2.9.0
 hdbscan==0.8.22
-html5lib==0.9999999
+html5lib==0.999999999
 hyperlink==19.0.0
 idna==2.8
 incremental==17.5.0
